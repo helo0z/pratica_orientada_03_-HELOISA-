@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Sistema de Biblioteca</h2>
+
+<div class="box">
+    <h3>Usuarios Cadastrados</h3>
+    {% if usuarios %}
+        <ul>
+            {% for u in usuarios %}
+                <li><strong>{{ u.nome }}</strong> ({{ u.email }})</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Nenhum usuario cadastrado ainda.</p>
+    {% endif %}
+</div>
+
+<div class="box">
+    <h3>Livros Cadastrados</h3>
+    {% if livros %}
+        <ul>
+            {% for l in livros %}
+                <!-- Cumpre o requisito de mostrar o nome do usuario e nao só o id -->
+                <li><strong>{{ l.titulo }}</strong> - Usuário: {{ l.user.nome }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Nenhum livro cadastrado ainda.</p>
+    {% endif %}
+</div>
+{% endblock %}

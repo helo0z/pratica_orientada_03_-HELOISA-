@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Novo Livro</h2>
+
+<form action="{{ url_for('novo_livro') }}" method="POST">
+    <div>
+        <label>Título do Livro:</label><br>
+        <input type="text" name="titulo" required>
+    </div>
+    <br>
+    <div>
+        <label>Dono do Livro (Usuário):</label><br>
+        <select name="user_id" required>
+            <option value="">-- Selecione um usuario --</option>
+            {% for u in usuarios %}
+                <option value="{{ u.id }}">{{ u.nome }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <br>
+    <button type="submit">Salvar Livro</button>
+</form>
+{% endblock %}

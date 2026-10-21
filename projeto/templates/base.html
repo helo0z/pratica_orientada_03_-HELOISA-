@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Minha Biblioteca</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 30px; 
+            line-height: 1.6;
+            background-color: rgb(250, 223, 227);}
+        nav a {
+            margin-right: 15px; 
+            text-decoration: none; 
+            color: #0066cc; }
+        table { 
+            border-collapse: collapse; 
+            width: 100%; 
+            margin-top: 15px; }
+        th, td { 
+            border: 1px solid #ccc; 
+            padding: 8px; 
+            text-align: left; }
+        th { background-color: #f4f4f4; }
+        .box { margin-bottom: 30px; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('index') }}">Inicio</a> | 
+        <a href="{{ url_for('novo_usuario') }}">Cadastrar Usuario</a> | 
+        <a href="{{ url_for('novo_livro') }}">Cadastrar Livro</a>
+    </nav>
+    <hr>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
